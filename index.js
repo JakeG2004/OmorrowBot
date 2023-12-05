@@ -14,11 +14,11 @@ var cron = require("cron");
 
 function sendMessage(){
 	//Get date
-	let add = Math.floor(Math.random() * 2);
+	let add = Math.floor(Math.random() * 10);
 	let day = parseInt(moment().tz("America/Los_Angeles").format().slice(8,10)) + 1;
 
-	if(add + day <= 31){
-		day += add;
+	if(add == 0 && day <= 31){
+		day += add
 	}
 
 	let month = parseInt(moment().tz("America/Los_Angeles").format().slice(5,7));
