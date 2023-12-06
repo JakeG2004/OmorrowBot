@@ -25,6 +25,7 @@ function sendMessage(){
 
 	//Make the event happen
 	switch(event){
+		case 0:
 		case 1:
 		case 2:
 		case 3:
@@ -69,12 +70,6 @@ function sendMessage(){
 			console.log("Dec 1");
 			day = 1;
 			break;
-
-		case 10: //December 3
-			console.log("Dec 3");
-			day = 3;
-			break;
-
 	}
 
 	//Choose and send right file
