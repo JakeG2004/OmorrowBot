@@ -43,10 +43,13 @@ function sendMessage(){
 			break;
 
 		case 8: //Wait x days
-			if(days + day > 31)
-				break;
-
 			var days = Math.floor(Math.random() * 3) + 1;
+
+			if(days + day > 31){
+				console.log("Printing real date");
+				break;
+			}
+			
 			console.log("Wating " + days + " days");
 			var initialDay = day;
 			var finalDay = day + days;
