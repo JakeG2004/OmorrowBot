@@ -66,10 +66,12 @@ function sendMessage(){
 			break;
 		
 		case 9: //December 1
+			console.log("Dec 1");
 			day = 1;
 			break;
 
 		case 10: //December 3
+			console.log("Dec 3");
 			day = 3;
 			break;
 
