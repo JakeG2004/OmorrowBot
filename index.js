@@ -104,8 +104,8 @@ function sendMessage(){
 	}
 
 	//Wait for next instance
-	let min = 90 * 60;
-	let max = 720 * 60;
+	let min = 45 * 60;
+	let max = 360 * 60;
 	let rand = Math.floor(Math.random() * (max - min + 1) + min);
 	console.log('waiting ' + rand / 60 + ' minutes');
 	setTimeout(sendMessage, rand * 1000);
