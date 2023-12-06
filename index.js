@@ -10,7 +10,6 @@ client.commands = new Collection();
 
 //Libraries
 var moment = require('moment-timezone');
-var cron = require("cron");
 
 function sendMessage(){
 	//Get date
@@ -25,7 +24,20 @@ function sendMessage(){
 
 	//Make the event happen
 	switch(event){
-		case 0:
+		case 0: //Print n times
+			console.log("Printing n times");
+			let times = Math.floor(Math.random() * 3) + 2;
+
+			for(var i = 0; i < times; i++){
+
+				//Choose and send file
+				pic = new AttachmentBuilder(`pics/dec${day}.png`, { name: `dec${day}.png` });
+				channel.send({ files: [pic] });
+				setTimeout(console.log("Spam prevention, 5 seconds"), 5 * 1000);
+			}
+
+			break;
+			
 		case 1:
 		case 2:
 		case 3:
@@ -102,7 +114,6 @@ function sendMessage(){
 client.on(Events.ClientReady, async () => {
 	
   //login notif
-  let channel = client.guilds.cache.get(guildId).channels.cache.get(channelId);
   console.log(`Logged in as ${client.user.tag}!`);
 
   //channel.send("I'm sorry. It will happen again.");
