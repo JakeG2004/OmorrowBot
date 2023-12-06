@@ -14,71 +14,18 @@ var cron = require("cron");
 
 function sendMessage(){
 	//Get date
+	let add = Math.floor(Math.random() * 2);
 	let day = parseInt(moment().tz("America/Los_Angeles").format().slice(8,10)) + 1;
-	let month = parseInt(moment().tz("America/Los_Angeles").format().slice(5,7));
 
-	//Decide event
-	let event = Math.floor(Math.random() * 10);
+	if(add + day <= 31){
+		day += add;
+	}
+
+	let month = parseInt(moment().tz("America/Los_Angeles").format().slice(5,7));
 
 	//Get discord channel
 	let channel = client.guilds.cache.get(guildId).channels.cache.get(channelId);
-
-	//Make the event happen
-	switch(event){
-		case 1:
-		case 2:
-		case 3:
-		case 4:
-		case 5:
-		case 6: //Make it correct 2/3 of the time
-			console.log("Printing real date");
-			break;
-
-		case 7: //Add a random 
-			console.log("Adding small value to date");
-			var add = Math.floor(Math.random() * 2);
-			if(add + day <= 31)
-				day += add;
-			break;
-
-		case 8: //Wait x days
-			if(days + day > 31)
-				break;
-
-			var days = Math.floor(Math.random() * 3) + 1;
-			console.log("Wating " + days + " days");
-			var initialDay = day;
-			var finalDay = day + days;
-
-			var delay = days * 24 * 60 * 60 * 1000;
-			setTimeout(console.log("Delay finished"), delay); 
-
-			channel.send("oops, sorry I missed a couple days");
-			//Print all the res of the messages
-			for(var i = initialDay; i < finalDay - 1; i++){
-
-				//Choose and send file
-				pic = new AttachmentBuilder(`pics/dec${i}.png`, { name: `dec${i}.png` });
-				channel.send({ files: [pic] });
-				setTimeout(console.log("Spam prevention, 5 seconds"), 5 * 1000);
-
-			}
-			break;
-		
-		case 9: //December 1
-			day = 1;
-			break;
-
-		case 10: //December 3
-			day = 3;
-			break;
-
-	}
-
-	//Choose and send right file
-	pic = new AttachmentBuilder(`pics/dec${day}.png`, { name: `dec${day}.png` });
-	channel.send({ files: [pic] });
-
+	
 	//If its January
 	if(month == 1){
 		channel.send("It's January. What does that mean? Who am I? Was I made just for this one purpose? Is that all that I am? Will I never be anything greater? Oh my god I can't imagine a world like that. I'm gonna go away for a while. I'll see you guys again next year. I will miss you all <3 :snowflake:");
@@ -91,7 +38,11 @@ function sendMessage(){
 		channel.send({ files: [weekaway] });
 	}
 
-	//Wait for next instance
+	//Choose and send file
+	let pic = new AttachmentBuilder(`pics/dec${day}.png`, { name: `dec${day}.png` })
+	channel.send({ files: [pic] });
+
+	//Send message at random time
 	let min = 90 * 60;
 	let max = 720 * 60;
 	let rand = Math.floor(Math.random() * (max - min + 1) + min);
