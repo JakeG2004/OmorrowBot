@@ -22,6 +22,8 @@ function sendMessage(){
 	//Get discord channel
 	let channel = client.guilds.cache.get(guildId).channels.cache.get(channelId);
 
+	//event = 8;
+
 	//Make the event happen
 	switch(event){
 		case 0: //Print n times
@@ -33,7 +35,7 @@ function sendMessage(){
 				//Choose and send file
 				pic = new AttachmentBuilder(`pics/dec${day}.png`, { name: `dec${day}.png` });
 				channel.send({ files: [pic] });
-				setTimeout(console.log("Spam prevention, 5 seconds"), 5 * 1000);
+				setTimeout(console.log, 5 * 1000, "Spam prevention, 5 seconds");
 			}
 
 			break;
@@ -67,7 +69,7 @@ function sendMessage(){
 			var finalDay = day + days;
 
 			var delay = days * 24 * 60 * 60 * 1000;
-			setTimeout(console.log("Delay finished"), delay); 
+			setTimeout(console.log, delay, "Delay finished"); 
 
 			channel.send("oops, sorry I missed a couple days");
 			//Print all the res of the messages
@@ -76,7 +78,7 @@ function sendMessage(){
 				//Choose and send file
 				pic = new AttachmentBuilder(`pics/dec${i}.png`, { name: `dec${i}.png` });
 				channel.send({ files: [pic] });
-				setTimeout(console.log("Spam prevention, 5 seconds"), 5 * 1000);
+				setTimeout(console.log, 5 * 1000, "Spam prevention, 5 seconds");
 
 			}
 			break;
