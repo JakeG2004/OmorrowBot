@@ -22,7 +22,7 @@ function sendMessage(){
 	//Get discord channel
 	let channel = client.guilds.cache.get(guildId).channels.cache.get(channelId);
 
-	//event = 8;
+	event = 8;
 
 	//Make the event happen
 	switch(event){
@@ -69,7 +69,10 @@ function sendMessage(){
 			var finalDay = day + days;
 
 			var delay = days * 24 * 60 * 60 * 1000;
-			setTimeout(console.log, delay, "Delay finished"); 
+
+			setTimeout(function(){
+				console.log('Delay finished');
+			}, delay);
 
 			channel.send("oops, sorry I missed a couple days");
 			//Print all the res of the messages
