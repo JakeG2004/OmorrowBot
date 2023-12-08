@@ -72,18 +72,16 @@ function sendMessage(){
 
 			setTimeout(function(){
 				console.log('Delay finished');
+				channel.send("oops, sorry I missed a couple days");
+				//Print all the res of the messages
+				for(var i = initialDay; i < finalDay - 1; i++){
+	
+					//Choose and send file
+					pic = new AttachmentBuilder(`pics/dec${i}.png`, { name: `dec${i}.png` });
+					channel.send({ files: [pic] });
+	
+				}
 			}, delay);
-
-			channel.send("oops, sorry I missed a couple days");
-			//Print all the res of the messages
-			for(var i = initialDay; i < finalDay - 1; i++){
-
-				//Choose and send file
-				pic = new AttachmentBuilder(`pics/dec${i}.png`, { name: `dec${i}.png` });
-				channel.send({ files: [pic] });
-				setTimeout(console.log, 5 * 1000, "Spam prevention, 5 seconds");
-
-			}
 			break;
 		
 		case 9: //December 1
