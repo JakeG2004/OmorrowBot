@@ -56,52 +56,33 @@ function sendMessage(){
 				day += add;
 			break;
 
-		case 8: // Wait x days
+		case 8: //Wait x days
 			var days = Math.floor(Math.random() * 3) + 2;
-		
-			if (days + day > 31) {
+
+			if(days + day > 31){
 				console.log("Printing real date");
 				break;
 			}
-		
-			console.log("Waiting " + days + " days");
+			
+			console.log("Wating " + days + " days");
 			var initialDay = day;
 			var finalDay = day + days;
-		
+
 			var delay = days * 24 * 60 * 60 * 1000;
-		
-			// Create a function that returns a Promise
-			function wait(delay) {
-				return new Promise(resolve => {
-					setTimeout(() => {
-						console.log('Delay finished');
-						resolve();
-					}, delay);
-				});
-			}
-		
-			// Use the async/await pattern to wait for the delay
-			async function executeDelayedCode() {
-				await wait(delay);
-		
-				console.log("Delayed code execution");
-				channel.send("Oops, sorry I missed a couple of days");
-		
-				// Print all the rest of the messages
-				for (var i = initialDay; i < finalDay - 1; i++) {
-					// Choose and send file
+
+			setTimeout(function(){
+				console.log('Delay finished');
+				channel.send("oops, sorry I missed a couple days");
+				//Print all the res of the messages
+				for(var i = initialDay; i < finalDay - 1; i++){
+	
+					//Choose and send file
 					pic = new AttachmentBuilder(`pics/dec${i}.png`, { name: `dec${i}.png` });
 					channel.send({ files: [pic] });
+	
 				}
-			}
-		
-			// Call the function to initiate the delay
-			executeDelayedCode();
-		
-			// Break here; the rest of the code will continue after the delay
+			}, delay);
 			break;
-		
-		
 		
 		case 9: //December 1
 			console.log("Dec 1");
