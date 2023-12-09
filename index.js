@@ -22,7 +22,7 @@ function sendMessage(){
 	//Get discord channel
 	let channel = client.guilds.cache.get(guildId).channels.cache.get(channelId);
 
-	event = 8;
+	//event = 8;
 
 	//Make the event happen
 	switch(event){
