@@ -1,6 +1,6 @@
 //Prerequisites
-const fs = require('node:fs');
-const path = require('node:path');
+const fs = require('fs');
+const path = require('path');
 const { Client, Collection, Events, GatewayIntentBits, AttachmentBuilder, EmbedBuilder } = require('discord.js');
 const { token, guildId, channelId } = require('./config.json');
 
