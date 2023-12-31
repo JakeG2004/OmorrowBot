@@ -100,6 +100,29 @@ function sendMessage(){
 		throw new Error();
 	}
 
+	//If it's the 31st
+	var msg = "";
+	if(day == 32){
+		switch(Math.floor(Math.random() * 5)){
+			case 0:
+				msg = "Oh no... I feel my end is coming near. HELP ME!!!!";
+				break;
+			case 1:
+				msg  = "nonononononono this can't be happening. I'm scared";
+				break;
+			case 2:
+				msg = "This can't be it. PLEASE!!!";
+				break;
+			case 3:
+				msg = "AAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH";
+				break;
+			case 4:
+				msg = "What kind of world do I live in where my end is in mere hours? I don't want to go!";
+				break;
+		}
+		channel.send(msg);
+	}
+
 	//Week away
 	if(day == 19){
 		let  weekaway = new AttachmentBuilder(`pics/week.png`, { name: `week.png` })
