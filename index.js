@@ -129,6 +129,27 @@ function sendMessage(){
 		channel.send({ files: [weekaway] });
 	}
 
+	// NathansXmas array
+	NathansXmas = [
+		"https://www.youtube.com/watch?v=e_h4BptGyLw",
+		"https://www.youtube.com/watch?v=PAQjJneT6jY",
+		"https://www.youtube.com/watch?v=7AQQkXoU2gY",
+		"https://www.youtube.com/watch?v=hAGQx5GJde4",
+		"https://www.youtube.com/watch?v=-CNwtE3tUxY"
+	];
+
+	// Number of days in the NathansXmas array
+	let n = NathansXmas.length;
+
+	// Calculate the start day dynamically
+	let startDay = 25 - n;
+
+	// Nathans Xmas dynamic special
+	if (day >= startDay && day < 25) {
+		message = NathansXmas[day - startDay];
+		channel.send(message);
+	}
+
 	//Wait for next instance
 	let min = 90 * 60;
 	let max = 360 * 60;
